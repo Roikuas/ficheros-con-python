@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/index.js"></script><script>((r) => {
+            setTimeout(r);
+          })(() => {
+  const { markmap, mm } = window;
+  const toolbar = new markmap.Toolbar();
+  toolbar.attach(mm);
+  const el = toolbar.render();
+  el.setAttribute("style", "position:absolute;bottom:20px;right:20px");
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+            })(() => window.markmap,null,{"content":"Mapa Mental Completo: Módulo <code>glob</code> en Python","children":[{"content":"glob","children":[{"content":"Funciones Principales","children":[{"content":"glob()","children":[{"content":"Busca archivos y directorios que coinciden con un patrón","children":[],"payload":{"lines":"10,11"}},{"content":"Sintaxis: <code>glob.glob(pattern, recursive=False)</code>","children":[],"payload":{"lines":"11,12"}},{"content":"Parámetros:","children":[{"content":"<code>pattern</code>: Patrón de búsqueda (puede incluir comodines <code>*</code>, <code>?</code>, <code>[]</code>)","children":[],"payload":{"lines":"13,14"}},{"content":"<code>recursive</code>: Permite búsqueda recursiva en subdirectorios si es <code>True</code>","children":[],"payload":{"lines":"14,15"}}],"payload":{"lines":"12,15"}},{"content":"Devuelve: Lista de rutas que coinciden con el patrón","children":[],"payload":{"lines":"15,17"}}],"payload":{"lines":"9,10"}},{"content":"iglob()","children":[{"content":"Generador que busca archivos y directorios que coinciden con un patrón","children":[],"payload":{"lines":"18,19"}},{"content":"Sintaxis: <code>glob.iglob(pattern, recursive=False)</code>","children":[],"payload":{"lines":"19,20"}},{"content":"Parámetros:","children":[{"content":"<code>pattern</code>: Patrón de búsqueda","children":[],"payload":{"lines":"21,22"}},{"content":"<code>recursive</code>: Permite búsqueda recursiva en subdirectorios si es <code>True</code>","children":[],"payload":{"lines":"22,23"}}],"payload":{"lines":"20,23"}},{"content":"Devuelve: Generador de rutas que coinciden con el patrón","children":[],"payload":{"lines":"23,25"}}],"payload":{"lines":"17,18"}}],"payload":{"lines":"7,8"}},{"content":"Comodines","children":[{"content":"<strong><code>*</code></strong>: Coincide con cero o más caracteres","children":[],"payload":{"lines":"26,27"}},{"content":"<strong><code>?</code></strong>: Coincide con un solo carácter","children":[],"payload":{"lines":"27,28"}},{"content":"<strong><code>[abc]</code></strong>: Coincide con cualquiera de los caracteres entre corchetes","children":[],"payload":{"lines":"28,29"}},{"content":"<strong><code>[!abc]</code></strong>: Coincide con cualquiera de los caracteres que no están entre corchetes","children":[],"payload":{"lines":"29,30"}},{"content":"<strong><code>[a-z]</code></strong>: Coincide con cualquier carácter en el rango especificado","children":[],"payload":{"lines":"30,32"}}],"payload":{"lines":"25,26"}},{"content":"Ejemplos de Uso","children":[{"content":"Búsqueda Simple","children":[{"content":"<pre><code class=\"language-python\"><span class=\"hljs-keyword\">import</span> glob\n\n<span class=\"hljs-comment\"># Buscar todos los archivos .txt en el directorio actual</span>\narchivos_txt = glob.glob(<span class=\"hljs-string\">'*.txt'</span>)\n<span class=\"hljs-built_in\">print</span>(archivos_txt)\n</code></pre>","children":[]}],"payload":{"lines":"34,35"}}],"payload":{"lines":"32,33"}}],"payload":{"lines":"3,4"}}],"payload":{"lines":"1,2"}},null)</script>
+</body>
+</html>

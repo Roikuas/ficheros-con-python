@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/index.js"></script><script>((r) => {
+            setTimeout(r);
+          })(() => {
+  const { markmap, mm } = window;
+  const toolbar = new markmap.Toolbar();
+  toolbar.attach(mm);
+  const el = toolbar.render();
+  el.setAttribute("style", "position:absolute;bottom:20px;right:20px");
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+            })(() => window.markmap,null,{"content":"Mapa Mental Completo: Módulo <code>pandas</code> en Python","children":[{"content":"pandas","children":[{"content":"Estructuras de Datos Principales","children":[{"content":"DataFrame","children":[{"content":"Estructura tabular bidimensional con etiquetas en filas y columnas","children":[],"payload":{"lines":"10,11"}},{"content":"Similar a una tabla de base de datos o una hoja de cálculo","children":[],"payload":{"lines":"11,13"}}],"payload":{"lines":"8,9"}},{"content":"Series","children":[{"content":"Objeto unidimensional similar a un array o lista que contiene datos y etiquetas de ejes (índices)","children":[],"payload":{"lines":"15,17"}}],"payload":{"lines":"13,14"}}],"payload":{"lines":"6,7"}},{"content":"Funcionalidades Principales","children":[{"content":"Lectura y Escritura de Datos","children":[{"content":"\n<p data-lines=\"21,22\"><strong>Lectura de Datos</strong></p>","children":[{"content":"<code>pd.read_csv()</code>: Lee datos desde un archivo CSV en un DataFrame","children":[],"payload":{"lines":"22,23"}},{"content":"<code>pd.read_excel()</code>: Lee datos desde un archivo Excel en un DataFrame","children":[],"payload":{"lines":"23,24"}},{"content":"<code>pd.read_sql()</code>: Lee datos desde una base de datos SQL en un DataFrame","children":[],"payload":{"lines":"24,26"}}],"payload":{"lines":"21,26"}},{"content":"\n<p data-lines=\"26,27\"><strong>Escritura de Datos</strong></p>","children":[{"content":"<code>df.to_csv()</code>: Escribe datos de un DataFrame en un archivo CSV","children":[],"payload":{"lines":"27,28"}},{"content":"<code>df.to_excel()</code>: Escribe datos de un DataFrame en un archivo Excel","children":[],"payload":{"lines":"28,29"}},{"content":"<code>df.to_sql()</code>: Escribe datos de un DataFrame en una base de datos SQL","children":[],"payload":{"lines":"29,31"}}],"payload":{"lines":"26,31"}}],"payload":{"lines":"19,20"}},{"content":"Manipulación y Transformación de Datos","children":[{"content":"\n<p data-lines=\"33,34\"><strong>Selección y Filtrado</strong></p>","children":[{"content":"<code>df[columna]</code>: Selecciona una columna específica del DataFrame","children":[],"payload":{"lines":"34,35"}},{"content":"<code>df.loc[]</code>: Accede a un grupo de filas y columnas por etiqueta(s) o una matriz booleana","children":[],"payload":{"lines":"35,36"}},{"content":"<code>df.iloc[]</code>: Accede a un grupo de filas y columnas por posición(s) enteras","children":[],"payload":{"lines":"36,38"}}],"payload":{"lines":"33,38"}},{"content":"\n<p data-lines=\"38,39\"><strong>Operaciones de Datos</strong></p>","children":[{"content":"<code>df.merge()</code>: Realiza una combinación (join) de DataFrame similar a SQL","children":[],"payload":{"lines":"39,40"}},{"content":"<code>df.groupby()</code>: Agrupa filas por una o más columnas","children":[],"payload":{"lines":"40,41"}},{"content":"<code>df.pivot_table()</code>: Crea una tabla dinámica a partir de un DataFrame","children":[],"payload":{"lines":"41,43"}}],"payload":{"lines":"38,43"}}],"payload":{"lines":"31,32"}},{"content":"Análisis y Visualización de Datos","children":[{"content":"\n<p data-lines=\"45,46\"><strong>Estadísticas Descriptivas</strong></p>","children":[{"content":"<code>df.describe()</code>: Calcula estadísticas descriptivas para columnas numéricas","children":[],"payload":{"lines":"46,48"}}],"payload":{"lines":"45,48"}},{"content":"\n<p data-lines=\"48,49\"><strong>Visualización</strong></p>","children":[{"content":"<code>df.plot()</code>: Crea gráficos a partir de los datos del DataFrame utilizando matplotlib integrado","children":[],"payload":{"lines":"49,51"}}],"payload":{"lines":"48,51"}}],"payload":{"lines":"43,44"}}],"payload":{"lines":"17,18"}},{"content":"Funcionalidades Avanzadas","children":[{"content":"\n<p data-lines=\"53,54\"><strong>Manejo de Fechas y Series Temporales</strong></p>","children":[{"content":"<code>pd.date_range()</code>: Genera un rango de fechas","children":[],"payload":{"lines":"54,55"}},{"content":"<code>pd.to_datetime()</code>: Convierte una cadena, serie temporal o lista en tipo de fecha y hora","children":[],"payload":{"lines":"55,56"}},{"content":"<code>df.resample()</code>: Cambia la frecuencia de los datos de la serie temporal","children":[],"payload":{"lines":"56,58"}}],"payload":{"lines":"53,58"}},{"content":"\n<p data-lines=\"58,59\"><strong>Manejo de Datos Faltantes</strong></p>","children":[{"content":"<code>df.dropna()</code>: Elimina filas o columnas con datos faltantes","children":[],"payload":{"lines":"59,60"}},{"content":"<code>df.fillna()</code>: Rellena valores faltantes con un valor específico","children":[],"payload":{"lines":"60,62"}}],"payload":{"lines":"58,62"}}],"payload":{"lines":"51,52"}},{"content":"Ejemplo de Uso","children":[{"content":"<pre><code class=\"language-python\"><span class=\"hljs-keyword\">import</span> pandas <span class=\"hljs-keyword\">as</span> pd\n\n<span class=\"hljs-comment\"># Crear un DataFrame</span>\ndatos = {<span class=\"hljs-string\">'Nombre'</span>: [<span class=\"hljs-string\">'John'</span>, <span class=\"hljs-string\">'Emily'</span>, <span class=\"hljs-string\">'Jack'</span>],\n         <span class=\"hljs-string\">'Edad'</span>: [<span class=\"hljs-number\">30</span>, <span class=\"hljs-number\">28</span>, <span class=\"hljs-number\">35</span>],\n         <span class=\"hljs-string\">'Ciudad'</span>: [<span class=\"hljs-string\">'New York'</span>, <span class=\"hljs-string\">'Los Angeles'</span>, <span class=\"hljs-string\">'Chicago'</span>]}\ndf = pd.DataFrame(datos)\n\n<span class=\"hljs-comment\"># Mostrar el DataFrame</span>\n<span class=\"hljs-built_in\">print</span>(df)\n\n<span class=\"hljs-comment\"># Estadísticas descriptivas</span>\n<span class=\"hljs-built_in\">print</span>(df.describe())\n\n<span class=\"hljs-comment\"># Graficar datos</span>\ndf.plot(x=<span class=\"hljs-string\">'Nombre'</span>, y=<span class=\"hljs-string\">'Edad'</span>, kind=<span class=\"hljs-string\">'bar'</span>, title=<span class=\"hljs-string\">'Edades por Nombre'</span>)\n\n<span class=\"hljs-comment\"># Guardar el DataFrame en un archivo CSV</span>\ndf.to_csv(<span class=\"hljs-string\">'datos.csv'</span>, index=<span class=\"hljs-literal\">False</span>)\n</code></pre>","children":[]}],"payload":{"lines":"62,63"}}],"payload":{"lines":"3,4"}}],"payload":{"lines":"1,2"}},null)</script>
+</body>
+</html>

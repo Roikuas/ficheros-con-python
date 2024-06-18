@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/index.js"></script><script>((r) => {
+            setTimeout(r);
+          })(() => {
+  const { markmap, mm } = window;
+  const toolbar = new markmap.Toolbar();
+  toolbar.attach(mm);
+  const el = toolbar.render();
+  el.setAttribute("style", "position:absolute;bottom:20px;right:20px");
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+            })(() => window.markmap,null,{"content":"Mapa Mental Completo: Módulo <code>PyMuPDF</code> en Python","children":[{"content":"PyMuPDF","children":[{"content":"Funcionalidades Principales","children":[{"content":"Lectura de Documentos PDF","children":[{"content":"\n<p data-lines=\"10,11\"><strong>Abrir Documento</strong></p>","children":[{"content":"<code>fitz.open()</code>: Abre un archivo PDF y devuelve un objeto <code>Document</code>","children":[],"payload":{"lines":"11,13"}}],"payload":{"lines":"10,13"}},{"content":"\n<p data-lines=\"13,14\"><strong>Obtener Metadatos</strong></p>","children":[{"content":"<code>Document.metadata</code>: Devuelve metadatos del documento PDF (autor, título, etc.)","children":[],"payload":{"lines":"14,16"}}],"payload":{"lines":"13,16"}},{"content":"\n<p data-lines=\"16,17\"><strong>Número de Páginas</strong></p>","children":[{"content":"<code>Document.page_count</code>: Devuelve el número total de páginas en el documento","children":[],"payload":{"lines":"17,19"}}],"payload":{"lines":"16,19"}}],"payload":{"lines":"8,9"}},{"content":"Manipulación de Páginas y Texto","children":[{"content":"\n<p data-lines=\"21,22\"><strong>Acceder a Páginas</strong></p>","children":[{"content":"<code>Document.load_page(n)</code>: Carga la página <code>n</code> del documento","children":[],"payload":{"lines":"22,23"}},{"content":"<code>Page.get_text()</code>: Extrae el texto de la página actual","children":[],"payload":{"lines":"23,25"}}],"payload":{"lines":"21,25"}},{"content":"\n<p data-lines=\"25,26\"><strong>Buscar Texto</strong></p>","children":[{"content":"<code>Page.search_for(pattern)</code>: Busca un patrón de texto en la página","children":[],"payload":{"lines":"26,28"}}],"payload":{"lines":"25,28"}}],"payload":{"lines":"19,20"}},{"content":"Manipulación Avanzada","children":[{"content":"\n<p data-lines=\"30,31\"><strong>Extraer Imágenes</strong></p>","children":[{"content":"<code>Page.get_pixmap()</code>: Extrae la imagen de la página en forma de mapa de bits","children":[],"payload":{"lines":"31,33"}}],"payload":{"lines":"30,33"}},{"content":"\n<p data-lines=\"33,34\"><strong>Análisis de Estructura</strong></p>","children":[{"content":"<code>Page.get_page_layout()</code>: Devuelve una representación de la estructura de la página","children":[],"payload":{"lines":"34,36"}}],"payload":{"lines":"33,36"}}],"payload":{"lines":"28,29"}},{"content":"Exportación y Guardado","children":[{"content":"\n<p data-lines=\"38,39\"><strong>Guardar Páginas como Imágenes</strong></p>","children":[{"content":"<code>Page.save_image()</code>: Guarda la página como una imagen","children":[],"payload":{"lines":"39,41"}}],"payload":{"lines":"38,41"}},{"content":"\n<p data-lines=\"41,42\"><strong>Guardar Páginas como Texto</strong></p>","children":[{"content":"<code>Document.save_text()</code>: Guarda el texto del documento en un archivo de texto","children":[],"payload":{"lines":"42,44"}}],"payload":{"lines":"41,44"}}],"payload":{"lines":"36,37"}}],"payload":{"lines":"6,7"}},{"content":"Ejemplo de Uso","children":[{"content":"<pre><code class=\"language-python\"><span class=\"hljs-keyword\">import</span> fitz\n\n<span class=\"hljs-comment\"># Abrir un documento PDF</span>\ndocumento = fitz.<span class=\"hljs-built_in\">open</span>(<span class=\"hljs-string\">'ejemplo.pdf'</span>)\n\n<span class=\"hljs-comment\"># Obtener metadatos</span>\nmetadatos = documento.metadata\n<span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f\"Metadatos del documento: <span class=\"hljs-subst\">{metadatos}</span>\"</span>)\n\n<span class=\"hljs-comment\"># Acceder a la primera página</span>\nprimera_pagina = documento.load_page(<span class=\"hljs-number\">0</span>)\n\n<span class=\"hljs-comment\"># Extraer texto de la primera página</span>\ntexto_pagina = primera_pagina.get_text()\n<span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f\"Texto de la primera página:\\n<span class=\"hljs-subst\">{texto_pagina}</span>\"</span>)\n\n<span class=\"hljs-comment\"># Buscar y resaltar un texto específico en la página</span>\nbusqueda = primera_pagina.search_for(<span class=\"hljs-string\">'ejemplo'</span>)\n<span class=\"hljs-keyword\">for</span> marca <span class=\"hljs-keyword\">in</span> busqueda:\n    primera_pagina.add_highlight_annot(marca)\n\n<span class=\"hljs-comment\"># Guardar el documento modificado</span>\ndocumento.save(<span class=\"hljs-string\">'documento_modificado.pdf'</span>)\n\n<span class=\"hljs-comment\"># Cerrar el documento</span>\ndocumento.close()\n\n</code></pre>","children":[]}],"payload":{"lines":"44,45"}}],"payload":{"lines":"2,3"}}],"payload":{"lines":"0,1"}},null)</script>
+</body>
+</html>

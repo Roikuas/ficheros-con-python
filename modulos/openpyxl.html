@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/index.js"></script><script>((r) => {
+            setTimeout(r);
+          })(() => {
+  const { markmap, mm } = window;
+  const toolbar = new markmap.Toolbar();
+  toolbar.attach(mm);
+  const el = toolbar.render();
+  el.setAttribute("style", "position:absolute;bottom:20px;right:20px");
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+            })(() => window.markmap,null,{"content":"Conceptos Clave para Usar Openpyxl","children":[{"content":"Introducción a Openpyxl","children":[{"content":"<strong>Openpyxl</strong>: Librería de Python para trabajar con archivos de Excel (.xlsx).","children":[],"payload":{"lines":"4,6"}}],"payload":{"lines":"2,3"}},{"content":"Estructura de Archivos Excel","children":[{"content":"<strong>Workbook</strong>: Representa todo el libro de Excel.","children":[],"payload":{"lines":"8,9"}},{"content":"<strong>Worksheet</strong>: Hojas individuales dentro del libro.","children":[],"payload":{"lines":"9,10"}},{"content":"<strong>Cell</strong>: Celda individual dentro de una hoja.","children":[],"payload":{"lines":"10,12"}}],"payload":{"lines":"6,7"}},{"content":"Lectura y Escritura de Archivos","children":[{"content":"<strong>load_workbook()</strong>: Cargar un archivo Excel existente.","children":[],"payload":{"lines":"14,15"}},{"content":"<strong>Workbook.save()</strong>: Guardar cambios en un archivo Excel.","children":[],"payload":{"lines":"15,16"}},{"content":"<strong>create_sheet()</strong>: Crear una nueva hoja en un libro.","children":[],"payload":{"lines":"16,18"}}],"payload":{"lines":"12,13"}},{"content":"Acceso y Modificación de Datos","children":[{"content":"<strong>sheet['A1']</strong>: Acceder a una celda por coordenadas.","children":[],"payload":{"lines":"20,21"}},{"content":"<strong>sheet.cell()</strong>: Acceder a una celda por fila y columna.","children":[],"payload":{"lines":"21,22"}},{"content":"<strong>value</strong>: Propiedad para obtener o asignar el valor de una celda.","children":[],"payload":{"lines":"22,24"}}],"payload":{"lines":"18,19"}},{"content":"Operaciones con Filas y Columnas","children":[{"content":"<strong>iter_rows()</strong>: Iterar sobre filas.","children":[],"payload":{"lines":"26,27"}},{"content":"<strong>iter_cols()</strong>: Iterar sobre columnas.","children":[],"payload":{"lines":"27,28"}},{"content":"<strong>append()</strong>: Agregar filas al final de una hoja.","children":[],"payload":{"lines":"28,30"}}],"payload":{"lines":"24,25"}},{"content":"Estilo y Formato","children":[{"content":"<strong>Font()</strong>: Configurar el estilo de la fuente.","children":[],"payload":{"lines":"32,33"}},{"content":"<strong>Alignment()</strong>: Alinear el contenido de las celdas.","children":[],"payload":{"lines":"33,34"}},{"content":"<strong>NumberFormat()</strong>: Formatear números en celdas.","children":[],"payload":{"lines":"34,36"}}],"payload":{"lines":"30,31"}},{"content":"Gráficos y Objetos","children":[{"content":"<strong>add_chart()</strong>: Agregar un gráfico a una hoja.","children":[],"payload":{"lines":"38,39"}},{"content":"<strong>Image()</strong>: Insertar imágenes en una hoja.","children":[],"payload":{"lines":"39,41"}}],"payload":{"lines":"36,37"}},{"content":"Manejo de Fórmulas","children":[{"content":"<strong>data_only</strong>: Obtener valores calculados en lugar de fórmulas.","children":[],"payload":{"lines":"43,44"}},{"content":"<strong>Formula()</strong>: Asignar fórmulas a celdas.","children":[],"payload":{"lines":"44,46"}}],"payload":{"lines":"41,42"}},{"content":"Manejo Avanzado","children":[{"content":"<strong>Merging</strong>: Combinar celdas.","children":[],"payload":{"lines":"48,49"}},{"content":"<strong>Data Validation</strong>: Validar datos de entrada en celdas.","children":[],"payload":{"lines":"49,51"}}],"payload":{"lines":"46,47"}},{"content":"Optimización y Rendimiento","children":[{"content":"<strong>pandas.DataFrame.to_excel()</strong>: Exportar datos desde Pandas a Excel con Openpyxl.","children":[],"payload":{"lines":"53,55"}}],"payload":{"lines":"51,52"}},{"content":"Seguridad y Protección","children":[{"content":"<strong>Protection</strong>: Proteger hojas y libros contra modificaciones no autorizadas.","children":[],"payload":{"lines":"57,59"}}],"payload":{"lines":"55,56"}},{"content":"Integración con Otras Bibliotecas","children":[{"content":"Compatibilidad con otras bibliotecas de Python como Pandas para manipulación de datos avanzada.","children":[],"payload":{"lines":"61,64"}}],"payload":{"lines":"59,60"}}],"payload":{"lines":"0,1"}},null)</script>
+</body>
+</html>

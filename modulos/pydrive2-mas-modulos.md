@@ -5,6 +5,53 @@
 
 ### pydrive2.auth
 - **GoogleAuth**
+  - Atributos: <!-- Atributos de pydrive2.auth.GoogleAuth-->
+    
+    - **credentials**
+      - Credenciales OAuth2 actuales.
+      - Utilizadas para la autenticación y autorización en Google Drive.
+
+    - **settings**
+      - Configuraciones específicas para la autenticación.
+      - Incluye atributos como `client_id`, `client_secret`, y otros detalles de configuración.
+
+    - **client_config**
+      - Configuración del cliente OAuth.
+      - Puede ser proporcionado directamente o cargado desde un archivo.
+
+    - **auth_method**
+      - Método de autenticación utilizado.
+      - Ejemplos: 'client_secrets', 'service', 'settings'.
+
+    - **flow**
+      - Flujo OAuth2 utilizado para la autenticación.
+      - Puede ser personalizado si se requiere.
+
+    - **client_config_backend**
+      - Backend para cargar la configuración del cliente OAuth.
+      - Ejemplos: 'file', 'settings'.
+
+    - **default_settings**
+      - Configuraciones predeterminadas para la autenticación.
+      - Utilizadas si no se proporciona una configuración específica.
+
+    - **flags**
+      - Opciones de línea de comandos para la autenticación.
+      - Útil para personalizar el proceso de autenticación.
+
+    - **service**
+      - Servicio autenticado de Google Drive.
+      - Proporciona acceso a las APIs de Google Drive.
+
+    - **settings_file**
+      - Archivo de configuración utilizado para la autenticación.
+      - Nombre del archivo de configuración.
+
+    - **http**
+      - Objeto HTTP utilizado para realizar solicitudes.
+      - Utilizado internamente por la clase para hacer solicitudes HTTP.
+
+
   - Métodos:
     - `LocalWebserverAuth()`
     - `CommandLineAuth()`

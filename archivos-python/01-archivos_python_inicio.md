@@ -129,7 +129,8 @@ with open('archivo.txt', 'r') as archivo:
     contenido = archivo.read()
 ```
 
-Esto garantiza que el archivo se cierre automáticamente.
+Esto garantiza que el archivo se cierre automáticamente.--
+Evitando el uso de la función `close()`.
 
 #### 3.1 Modos Básicos de Apertura
 

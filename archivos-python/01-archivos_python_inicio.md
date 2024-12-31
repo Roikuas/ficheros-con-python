@@ -129,7 +129,8 @@ with open('archivo.txt', 'r') as archivo:
     contenido = archivo.read()
 ```
 
-Esto garantiza que el archivo se cierre automáticamente.
+Esto garantiza que el archivo se cierre automáticamente.--
+Evitando el uso de la función `close()`.
 
 #### 3.1 Modos Básicos de Apertura
 
@@ -315,13 +316,50 @@ with open('archivo.txt', 'rt') as f:
    ```
 
 2. **seek()**
-   ```python
-   with open('archivo.txt', 'r') as f:
-       # Mueve el puntero a una posición específica
-       f.seek(0)  # Inicio del archivo
-       f.seek(10)  # 10 bytes desde el inicio
-       f.seek(0, 2)  # Final del archivo
-   ```
+
+- Para manipular la posición del puntero o cursor en un archivo
+- `file.seek(offset,whence)`
+  - `offset`: número de bytes a desplazar
+  - `whence`: posición del puntero a partir de la cual se desplaza
+    - `0(SEEK_SET)`: comienzo del archivo(valor por defecto)
+    - `1(SEEK_CUR)`: actual
+    - `2(SEEK_END)`: fin del archivo
+  ```python
+  with open('archivo.txt', 'r') as f:
+      # Mueve el puntero a una posición específica
+      f.seek(0)  # Inicio del archivo
+      f.seek(10)  # 10 bytes desde el inicio
+      f.seek(0, 2)  # Final del archivo
+  ```
+
+#### Ejemplos
+
+###### Usar varias funciones integradas de python en un archivo
+
+- Reiniciar el cursor o puntero con `file.seek(0)`
+
+```python
+with open('archivo.txt', 'r') as file:
+    contenido = file.read()  # Lee todo el contenido del archivo
+    file.seek(0)  # Regresa el cursor al principio del archivo
+    primera_linea = file.readline()  # Lee la primera línea del archivo
+    print(primera_linea)
+```
+
+---
+
+- Cerrar y volver a abrir un archivo
+
+```python
+file = open('archivo.txt', 'r')
+contenido = file.read()
+file.close()
+
+file = open('archivo.txt', 'r')
+primera_linea = file.readline()
+print(primera_linea)
+file.close()
+```
 
 ## 6. Manejo de Errores y Excepciones
 
@@ -458,6 +496,17 @@ if os.path.exists('archivo.txt'):
     os.remove('archivo.txt')
 ```
 
+#### Copiar datos de un archivo a otro
+
+```python
+with open('archivo_origen.txt', 'rb') as origen, open('copia.txt', 'wb') as destino:
+    while True:
+        bloque = origen.read(4096)
+        if not bloque:
+            break
+        destino.write(bloque)
+```
+
 ## 10. Buenas Prácticas y Recomendaciones
 
 1. **Siempre usar `with`**
@@ -488,5 +537,30 @@ if os.path.exists('archivo.txt'):
    - Mejora la mantenibilidad
    - Facilita la colaboración
    - Ayuda en el debugging
+
+##### Resumen de funciones integradas de python para manipular archivos
+
+| **Función**    | **Descripción**                                                                   | **Sintaxis**                                                                                              | **Uso Común** |
+| -------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------- |
+| `open()`       | Abre un archivo para lectura, escritura o agregación.                             | `open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)` | Muy alto      |
+| `read()`       | Lee el contenido del archivo completo o un tamaño específico de caracteres/bytes. | `archivo.read(size=-1)`                                                                                   | Muy alto      |
+| `write()`      | Escribe una cadena en el archivo.                                                 | `archivo.write(string)`                                                                                   | Muy alto      |
+| `readline()`   | Lee una línea del archivo.                                                        | `archivo.readline(size=-1)`                                                                               | Alto          |
+| `readlines()`  | Lee todas las líneas del archivo y las devuelve como una lista.                   | `archivo.readlines(hint=-1)`                                                                              | Alto          |
+| `writelines()` | Escribe una lista de cadenas en el archivo.                                       | `archivo.writelines(lines)`                                                                               | Alto          |
+| `close()`      | Cierra un archivo abierto, liberando los recursos asociados.                      | `archivo.close()`                                                                                         | Alto          |
+| `with`         | Bloque de contexto para abrir y cerrar automáticamente el archivo.                | `with open(file, mode='r') as archivo:`                                                                   | Muy alto      |
+| `seek()`       | Mueve el puntero del archivo a una posición específica.                           | `archivo.seek(offset, whence=0)`                                                                          | Moderado      |
+| `tell()`       | Devuelve la posición actual del puntero en el archivo.                            | `archivo.tell()`                                                                                          | Moderado      |
+| `flush()`      | Fuerza la escritura de datos en el archivo físico.                                | `archivo.flush()`                                                                                         | Moderado      |
+| `truncate()`   | Corta el archivo a un tamaño específico.                                          | `archivo.truncate(size=None)`                                                                             | Moderado      |
+| `mode`         | Devuelve el modo en el que el archivo fue abierto.                                | `archivo.mode`                                                                                            | Bajo          |
+| `name`         | Devuelve el nombre del archivo.                                                   | `archivo.name`                                                                                            | Bajo          |
+| `closed`       | Indica si el archivo está cerrado (`True` o `False`).                             | `archivo.closed`                                                                                          | Bajo          |
+| `fileno()`     | Retorna un descriptor de archivo entero asociado con el objeto.                   | `archivo.fileno()`                                                                                        | Bajo          |
+| `isatty()`     | Devuelve `True` si el archivo está conectado a un terminal interactivo.           | `archivo.isatty()`                                                                                        | Bajo          |
+| `readable()`   | Devuelve `True` si el archivo permite operaciones de lectura.                     | `archivo.readable()`                                                                                      | Moderado      |
+| `writable()`   | Devuelve `True` si el archivo permite operaciones de escritura.                   | `archivo.writable()`                                                                                      | Moderado      |
+| `seekable()`   | Devuelve `True` si el archivo permite mover el puntero (`seek`).                  | `archivo.seekable()`                                                                                      | Moderado      |
 
 ---
